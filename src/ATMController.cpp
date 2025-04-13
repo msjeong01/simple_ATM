@@ -5,7 +5,11 @@ ATMController::ATMController()
 
 ATMController::~ATMController() {}
 
-bool ATMController::checkState(State required, const std::string& current) const{
+bool ATMController::checkState(State required) const{
+    if(state != required) {
+        return false;
+    }
+    return true;
 }
 
 void ATMController::insertCard(const std::string& card){
