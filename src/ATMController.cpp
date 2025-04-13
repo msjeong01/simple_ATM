@@ -20,7 +20,14 @@ void ATMController::insertCard(const std::string& cardNumber){
 }
 
 bool ATMController::checkPin(const std::string& pinNumber){
-
+    if(!checkState(State::CardInserted)) return false;
+    if(pinNumber != PIN){
+        std::err << "Uncorrect PIN number, please try again" << std::endl;
+        return false;
+    }
+    state = State::PinChecked;
+    std::cout << "Correct PIN number" << std::endl;
+    return true;
 }
 
 void ATMController::selectAccount(const std::string& account){
