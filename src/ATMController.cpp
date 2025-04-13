@@ -48,10 +48,21 @@ void ATMController::depositCash(int intput){
     std::cout << "Complete to deposit [" << inpurt << "]" << std::endl;
 }
 
-bool ATMController::withdrawCash(int total){
-
+bool ATMController::withdrawCash(int output){
+    if(!checkState(State::Transaction)) return false;
+    if(output > balance){
+        std::err << "Impossible to withdraw $" << output << ", Out of balance" std::endl;
+        return false;
+    }
+    balance -= output;
+    std::cout << "Complete to withdraw $" << output << std::endl;
+    return true;
 }
 
 void ATMController::extractCard(){
-
+    std::cout << "Card Extracted" << std::endl;
+    card = ""
+    account = ""
+    balance = 0;
+    state = State::IDLE;
 }
