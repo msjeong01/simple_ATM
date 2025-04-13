@@ -52,7 +52,7 @@ int ATMController::checkBalance(){
 void ATMController::depositCash(int intput){
     if(!checkState(State::Transaction)) return;
     balance += input;
-    std::cout << "Complete to deposit [" << inpurt << "]" << std::endl;
+    std::cout << "Complete to deposit $" << input << std::endl;
 }
 
 bool ATMController::withdrawCash(int output){
