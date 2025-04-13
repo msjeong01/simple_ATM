@@ -12,11 +12,14 @@ bool ATMController::checkState(State required) const{
     return true;
 }
 
-void ATMController::insertCard(const std::string& card){
-
+void ATMController::insertCard(const std::string& cardNumber){
+    if(!checkState(State::IDLE)) return;
+    card = cardNumber;
+    state = State::CardInserted;
+    std::cout << "Card Number [" << card << "] inserted" << std::endl;
 }
 
-bool ATMController::checkPin(const std::string& pin){
+bool ATMController::checkPin(const std::string& pinNumber){
 
 }
 
