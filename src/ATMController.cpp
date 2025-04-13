@@ -26,12 +26,15 @@ bool ATMController::checkPin(const std::string& pinNumber){
         return false;
     }
     state = State::PinChecked;
-    std::cout << "Correct PIN number" << std::endl;
+    std::cout << "PIN number checked" << std::endl;
     return true;
 }
 
-void ATMController::selectAccount(const std::string& account){
-
+void ATMController::selectAccount(const std::string& selectAccount){
+    if(!checkState(State::PinChecked)) return;
+    account = selectAccount;
+    state = State::AccountSelected;
+    std::cout<< "Account [" << account << "] selected" << std::endl;
 }
 
 int ATMController::checkBalance(){
