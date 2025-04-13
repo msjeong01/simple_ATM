@@ -7,7 +7,7 @@ ATMController::~ATMController() {}
 
 bool ATMController::checkState(State required) const{
     if(state != required) {
-        std::err << "Required state: " << required << ", But current state: " << state << std::endl;
+        std::cerr << "Required state: " << required << ", But current state: " << state << std::endl;
         return false;
     }
     return true;
@@ -23,7 +23,7 @@ void ATMController::insertCard(const std::string& cardNumber){
 bool ATMController::checkPin(const std::string& pinNumber){
     if(!checkState(State::CardInserted)) return false;
     if(pinNumber != PIN){
-        std::err << "Uncorrect PIN number, please try again" << std::endl;
+        std::cerr << "Uncorrect PIN number, please try again" << std::endl;
         return false;
     }
     state = State::PinChecked;
@@ -59,7 +59,7 @@ void ATMController::depositCash(int input){
 bool ATMController::withdrawCash(int output){
     if(!checkState(State::Transaction)) return false;
     if(output > balance){
-        std::err << "Impossible to withdraw $" << output << ", Out of balance" std::endl;
+        std::cerr << "Impossible to withdraw $" << output << ", Out of balance" << std::endl;
         return false;
     }
     balance -= output;
@@ -69,8 +69,8 @@ bool ATMController::withdrawCash(int output){
 
 void ATMController::extractCard(){
     std::cout << "Card Extracted" << std::endl;
-    card = ""
-    account = ""
+    card = "";
+    account = "";
     balance = 0;
     state = State::IDLE;
 }
