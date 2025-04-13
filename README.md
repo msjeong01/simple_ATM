@@ -8,7 +8,7 @@ Run the program and follow these steps in order:
 - 2. Enter PIN: default PIN is 9999
 - 3. Select account: Enter your account name or number
 - 4. Set balance: Enter your initial deposit
-- 5. Depsit: Enter amount of savings
+- 5. Deposit: Enter amount of savings
 - 6. Withdraw: Enter amount of withdraw
 - 7. Extract card
 
