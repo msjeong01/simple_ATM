@@ -38,7 +38,7 @@ void ATMController::selectAccount(const std::string& selectAccount){
 }
 
 void ATMController::setBalance(int input){
-    if(!checkState(State::Transaction)) return;
+    if(!checkState(State::AccountSelected)) return;
     balance = input;
     state = State::Transaction;
     std::cout << "Complete to set balance $" << balance << std::endl;
@@ -58,7 +58,7 @@ void ATMController::depositCash(int input){
 bool ATMController::withdrawCash(int output){
     if(!checkState(State::Transaction)) return false;
     if(output > balance){
-        std::cerr << "Impossible to withdraw $" << output << ", Out of balance" << std::endl;
+        std::cerr << "Impossible to withdraw $" << output << ", Out of balance $" << balance << std::endl;
         return false;
     }
     balance -= output;
