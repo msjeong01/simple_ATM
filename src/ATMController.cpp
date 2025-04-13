@@ -38,7 +38,8 @@ void ATMController::selectAccount(const std::string& selectAccount){
 }
 
 int ATMController::checkBalance(){
-
+    if(!checkState(State::Transaction)) return -1;
+    return balance;
 }
 
 void ATMController::checkDeposit(int total){
