@@ -13,9 +13,7 @@ int main(){
     std::cout << "Input PIN number: ";
     std::cin >> input;
     if(!atm.checkPin(input)){
-        std::cerr << "Invalid PIN number, try again.." << std::endl;
-        atm.extractCard();
-        return -1;
+        return 1;
     }
 
     // 3. Select Account
@@ -39,8 +37,8 @@ int main(){
     int withdraw = 0;
     std::cout << "Withdraw $ ";
     std::cin >> withdraw;
-    if(atm.withdrawCash(withdraw)){
-        std::cerr << "Fail to withdraw $ " << withdraw << std::endl;
+    if(!atm.withdrawCash(withdraw)){
+        return 1;
     }
 
     // 7. Extract the card
