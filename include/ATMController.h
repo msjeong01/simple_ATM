@@ -1,4 +1,7 @@
 #include <string>
+#include <iostream>
+
+# define PIN "9999"
 
 class ATMController{
     public:
@@ -13,12 +16,13 @@ class ATMController{
         ATMController();
         ~ATMController();
 
-        void insertCard(const std::string& card);
-        bool checkPin(const std::string& pin);
-        void selectAccount(const std::string& account);
+        void insertCard(const std::string& cardNumber);
+        bool checkPin(const std::string& pinNumber);
+        void selectAccount(const std::string& selectAccount);
+        void setBalance(int input);
         int checkBalance();
-        void checkDeposit(int total);
-        bool withdrawCash(int total);
+        void depositCash(int input);
+        bool withdrawCash(int output);
         void extractCard();
 
     private:
@@ -26,4 +30,6 @@ class ATMController{
         std::string card;
         std::string account;
         int balance;
+
+        bool checkState(State required) const;
 };
