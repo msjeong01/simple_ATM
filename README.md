@@ -16,6 +16,7 @@ Run the program and follow these steps in order:
 ## How to Build
 ```
 git clone https://github.com/msjeong01/simple_ATM.git
+cd simple_ATM
 cd build
 cmake ..
 make
