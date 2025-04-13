@@ -7,6 +7,7 @@ ATMController::~ATMController() {}
 
 bool ATMController::checkState(State required) const{
     if(state != required) {
+        std::err << "Required state: " << required << ", But current state: " << state << std::endl;
         return false;
     }
     return true;
