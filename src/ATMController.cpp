@@ -37,6 +37,13 @@ void ATMController::selectAccount(const std::string& selectAccount){
     std::cout<< "Account [" << account << "] selected" << std::endl;
 }
 
+void ATMController::setBalance(int input){
+    if(!checkState(State::Transaction)) return;
+    balance = input;
+    state = State::Transaction;
+    std::cout << "Complete to set balance $" << balance << std::endl;
+}
+
 int ATMController::checkBalance(){
     if(!checkState(State::Transaction)) return -1;
     return balance;
