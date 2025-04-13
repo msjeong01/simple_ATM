@@ -12,10 +12,10 @@ int main(){
     // 2. Check the PIN number
     std::cout << "Input PIN number: ";
     std::cin >> input;
-    if(atm.checkPin(input)){
+    if(!atm.checkPin(input)){
         std::cerr << "Invalid PIN number, try again.." << std::endl;
         atm.extractCard();
-        return;
+        return -1;
     }
 
     // 3. Select Account
